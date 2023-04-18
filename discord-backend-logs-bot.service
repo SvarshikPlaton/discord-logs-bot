@@ -1,0 +1,14 @@
+[Unit]
+Description=discord-backend-logs-bot systemd service
+DefaultDependencies=no
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=java -jar /var/lib/jenkins/discord-backend-logs-bot.jar
+TimeoutStartSec=0
+RemainAfterExit=yes
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
