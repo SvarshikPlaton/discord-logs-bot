@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'master', url: 'https://github.com/SvarshikPlaton/discord-backend-logs-bot.git'
                 sh '''
-                    export JAVA_HOME="/lib/jvm/jdk-17"
+                    export JAVA_HOME="/usr/lib/jvm/jdk-17/"
 
                     chmod 744 ./mvnw
                     ./mvnw clean package
@@ -17,7 +17,7 @@ pipeline {
             agent { label 'java && jdk-17' }
             steps {
                 sh '''
-                    scp -i /var/lib/jenkins/.ssh/slave-SoftServe2023 -rp ./target/discord-backend-logs-bot*.jar jenkins@10.0.1.172:/var/lib/jenkins/workspace/discord-backend-logs-bot/
+                    scp -i /var/lib/jenkins/.ssh/slave-SoftServe2023 -rp ./target/discord-backend-logs-bot-*.jar jenkins@10.0.1.172:/var/lib/jenkins/workspace/discord-backend-logs-bot/
                     rm -rf ./*
                 '''
             }
@@ -28,7 +28,7 @@ pipeline {
 
                 sh '''
                     rm -f ./discord-backend-logs-bot.jar
-                    mv ./discord-backend-logs-bot*.jar ./discord-backend-logs-bot.jar
+                    mv ./discord-backend-logs-bot-*.jar ./discord-backend-logs-bot.jar
 
                     sudo systemctl stop discord-backend-logs-bot || true
                     chmod 755 ./install-systemd-service.sh
