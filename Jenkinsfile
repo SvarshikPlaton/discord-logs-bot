@@ -27,7 +27,7 @@ pipeline {
 
                 sh '''
                     rm -f ./discord-backend-logs-bot.jar
-                    mv ./discord-backend-logs-bot-*.jar ./discord-backend-logs-bot.jar
+                    mv ./discord-backend-logs-bot-*.jar /var/lib/jenkins/discord-backend-logs-bot.jar
 
                     sudo systemctl stop discord-backend-logs-bot || true
                     chmod 755 ./install-systemd-service.sh

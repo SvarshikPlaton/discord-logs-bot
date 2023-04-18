@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=java -jar /var/lib/jenkins/workspace/discord-backend-logs-bot/discord-backend-logs-bot.jar
+ExecStart=java -jar /var/lib/jenkins/discord-backend-logs-bot.jar
 TimeoutStartSec=0
 RemainAfterExit=yes
 Restart=on-failure
