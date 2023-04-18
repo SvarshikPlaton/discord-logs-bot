@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent { label 'java && jdk-17' }
             steps {
-                git branch: 'dev', url: 'https://github.com/SvarshikPlaton/discord-backend-logs-bot.git'
+                git branch: 'main', url: 'https://github.com/SvarshikPlaton/discord-backend-logs-bot.git'
                 sh '''
                     chmod 744 ./mvnw
                     ./mvnw clean package
