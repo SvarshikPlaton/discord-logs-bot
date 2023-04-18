@@ -18,7 +18,6 @@ pipeline {
             steps {
                 sh '''
                     scp -i /var/lib/jenkins/.ssh/slave-SoftServe2023 -rp ./target/discord-backend-logs-bot-*-jar-with-dependencies.jar jenkins@10.0.1.172:/var/lib/jenkins/workspace/discord-backend-logs-bot/
-                    rm -rf ./*
                 '''
             }
         }
