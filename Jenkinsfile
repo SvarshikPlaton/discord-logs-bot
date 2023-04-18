@@ -33,7 +33,6 @@ pipeline {
                     sudo systemctl stop discord-backend-logs-bot || true
                     chmod 755 ./install-systemd-service.sh
                     ./install-systemd-service.sh
-                    mv -f ./demo-${BUILD_NUMBER}.jar ~/demo.jar
                     sudo systemctl enable discord-backend-logs-bot --now
                 '''
             }
