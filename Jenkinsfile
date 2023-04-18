@@ -19,7 +19,7 @@ pipeline {
                 '''
             }
         }
-        tage('Run') {
+        stage('Run') {
             agent { label 'java && target && dev' }
             steps {
 
