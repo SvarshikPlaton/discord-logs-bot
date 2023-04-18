@@ -6,6 +6,8 @@ pipeline {
             steps {
                 git branch: 'master', url: 'https://github.com/SvarshikPlaton/discord-backend-logs-bot.git'
                 sh '''
+                    export JAVA_HOME="/lib/jvm/jdk-17"
+
                     chmod 744 ./mvnw
                     ./mvnw clean package
                 '''
